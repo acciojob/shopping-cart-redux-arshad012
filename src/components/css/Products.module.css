@@ -1,0 +1,49 @@
+
+.products_container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+.products_card {
+    padding: 15px 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addToCartBtn {
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    background-color: rgb(61, 61, 213);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.addToCartBtn:active {
+    background-color: rgb(39, 39, 210);
+}
+
+
+.wishListItems_container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+
+.wishListItems_container > div {
+    min-width: 200px;
+}
