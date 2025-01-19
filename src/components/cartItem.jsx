@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styles from './css/Cart.module.css';
 import { useDispatch } from 'react-redux';
 
-import { addToWishlist } from "../redux/productsSlice";
+import { addToWishlist, removeFromCart } from "../redux/productsSlice";
 
 const CartItem = ({item}) => {
     const [quantity, setQuantity] = useState(0);
@@ -19,7 +19,7 @@ const CartItem = ({item}) => {
                     <p>Price: ${item.price}</p>
                     <p>Category: {item.category}</p>
 
-                    <button>Remove from Cart</button>
+                    <button onClick={() => dispatch(removeFromCart(item.id))}>Remove from Cart</button>
                     <button onClick={() => dispatch(addToWishlist(item.id))}>Add to Wish list</button>
                 </div>
             </div>

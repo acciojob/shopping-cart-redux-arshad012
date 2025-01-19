@@ -45,5 +45,5 @@
 }
 
 .wishListItems_container > div {
-    min-width: 200px;
+    width: 200px;
 }

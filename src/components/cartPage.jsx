@@ -7,7 +7,10 @@ import CartItem from "./cartItem";
 const CartPage = () => {
     const {cart} = useSelector(state => state.products);
 
-    console.log('cart', cart);
+    let totalPrice=0;
+    for(let el of cart) {
+        totalPrice += el.price;
+    }
 
     return (
         <div className={styles.cartPage}>
@@ -20,7 +23,25 @@ const CartPage = () => {
                 </div>
             </div>
 
-            <div className={styles.cartValue}></div>
+            <div className={styles.cartValue}>
+                <h2>The Total Amount of</h2>
+                <hr style={{margin: 0}} />
+
+                <div className={styles.flex}>
+                    <p>Amount</p>
+                    <p>${totalPrice}</p>
+                </div>
+
+                <div className={styles.flex}>
+                    <p>Checking</p>
+                    <p>Free</p>
+                </div>
+                
+                <div className={styles.flex}>
+                    <p>Total Amount <br /> including GST</p>
+                    <p>{totalPrice && totalPrice + 200}</p>
+                </div>
+            </div>
         </div>
     )
 }

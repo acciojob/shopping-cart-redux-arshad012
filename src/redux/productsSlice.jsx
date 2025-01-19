@@ -22,9 +22,17 @@ const productsSlice = createSlice({
             const newCartItem = state.products.find(item => item.id == action.payload);
             state.cart = [...state.cart, newCartItem];
         },
+        removeFromCart: (state, action) => {
+            state.cart = state.cart.filter(item => item.id != action.payload);
+        },
         addToWishlist: (state, action) => {
             const newWishListItem = state.products.find(item => item.id == action.payload);
             state.wishList = [...state.wishList, newWishListItem];
+
+            state.cart = state.cart.filter(item => item.id != newWishListItem.id);
+        },
+        removeFromWishList: (state, action) => {
+            state.wishList = state.wishList.filter(item => item.id != action.payload);
         }
     },
     extraReducers: (builder) => {
@@ -45,5 +53,5 @@ const productsSlice = createSlice({
     }
 })
 
-export const {addToCart, addToWishlist} = productsSlice.actions;
+export const {addToCart, removeFromCart, addToWishlist, removeFromWishList} = productsSlice.actions;
 export default productsSlice.reducer;

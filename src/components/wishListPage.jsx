@@ -2,10 +2,11 @@ import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './css/Products.module.css';
+import { removeFromWishList } from "../redux/productsSlice";
 
 const WishListPage = () => {
     const { wishList } = useSelector(state => state.products);
-    console.log('wishList:', wishList);
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -20,7 +21,7 @@ const WishListPage = () => {
                                 <p>Price: ${prd.price}</p>
                                 <p>Category: {prd.category}</p>
                             </div>
-                            <button className={styles.addToCartBtn} onClick={() => handleAddToCart(prd.id)}>Add to Cart</button>
+                            <button className={styles.addToCartBtn} onClick={() => dispatch(removeFromWishList(prd.id))}>Remove from Wish list</button>
                         </div>
                     ))
                 }
