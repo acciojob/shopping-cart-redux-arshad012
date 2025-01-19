@@ -9,11 +9,11 @@ const ProductsPage = () => {
     const {products, status, error} = useSelector(state => state.products);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(
-            fetchProducts()
-        )
-    },[]);
+    // useEffect(() => {
+    //     dispatch(
+    //         fetchProducts()
+    //     )
+    // },[]);
 
     const handleAddToCart = (id) => {
         dispatch(
